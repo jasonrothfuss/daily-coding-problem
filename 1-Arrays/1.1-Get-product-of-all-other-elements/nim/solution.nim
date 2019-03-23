@@ -1,10 +1,10 @@
-import unittest, algorithm, random
+import algorithm
 
-proc product_of_others*(numbers: seq[int]): seq[int] =
+proc product_of_others*[T](numbers: seq[T]): seq[T] =
   result = @[]
   var
-    prefixProducts: seq[int] = @[]
-    suffixProducts: seq[int] = @[]
+    prefixProducts: seq[T] = @[]
+    suffixProducts: seq[T] = @[]
     acc = 1
 
   # Compute prefix products
@@ -24,6 +24,7 @@ proc product_of_others*(numbers: seq[int]): seq[int] =
     result.add(prefixProducts[i] * suffixProducts[i])
 
 when isMainModule:
+  import unittest, random
 
   suite "Basic examples from book":
 
